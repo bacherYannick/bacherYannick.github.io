@@ -12,6 +12,7 @@ body {
     text-align: center;
 }
 #canvas {
+    width: 100vw;
     z-index: 0;
 }
 .english[aria-hidden="true"],
@@ -267,9 +268,6 @@ nav {
 @media screen and (min-width: 800px) {
     * {
         cursor: none;
-    }
-    canvas {
-        width: 100%;
     }
     #cursor {
         display: block;
