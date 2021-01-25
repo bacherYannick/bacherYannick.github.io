@@ -34,7 +34,7 @@ let particleAnimation;
 let particleActive = false;
 let particleCount;
 let renderScene, bloomPass, composer;
-let sprite = new TextureLoader().load('/new/dist/assets/img/disc.png');
+let sprite = new TextureLoader().load('../assets/img/disc.png');
 let particles, modelParticles;
 let testStart = false;
 
@@ -216,7 +216,7 @@ function createModels() {
     let loader = new GLTFLoader();
 
     loader.load(
-        '/new/dist/assets/models/scene.gltf',
+        '../assets/models/scene.gltf',
 
         function (gltf) {
             gltf.scene.traverse(function (child) {
