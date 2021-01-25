@@ -67,7 +67,6 @@ if(isMobile) {
 /* Events */
 window.addEventListener("deviceorientation", onDeviceOrientation);
 $window.on("mousemove", onMouseMove);
-$window.on("resize", onResize);
 interactive.on("mouseenter", onLinkEnter);
 interactive.on("mouseleave", onLinkLeave);
 image.on("mouseenter", onImgEnter);
