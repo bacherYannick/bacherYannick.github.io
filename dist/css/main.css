@@ -1,0 +1,345 @@
+html {
+    overflow-x: hidden;
+}
+a {
+    color: transparent
+}
+body {
+    margin: 0;
+    color: white;
+    background-color: #070707;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+#canvas {
+    z-index: 0;
+}
+.english[aria-hidden="true"],
+.german[aria-hidden="true"] {
+    display: none;
+}
+.english[aria-hidden="false"],
+.german[aria-hidden="false"] {
+    display: block;
+}
+
+
+#container {
+    isolation: isolate;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+#main {
+    background: transparent;
+/*     z-index: 10; */
+}
+
+section {
+    width: 100%;
+}
+#home {
+    height: 100vh;
+}
+#about {
+    background-color: #070707;
+    box-shadow: 0 -50px 100px #070707;
+    font-size: 19px;
+    padding: 50px 0;
+}
+#about p {
+    line-height: 30px;
+}
+#about > div > p {
+    padding: 0 10%;
+}
+#about h3 {
+    padding-bottom: 20px;
+}
+#work {
+    background-color: #090909;
+    padding-bottom: 150px;
+}
+#work > div {
+    display: flex;
+    justify-content: center;
+}
+.imgContainer {
+    position: relative;
+    width: 500px;
+    text-align: center;
+    overflow: hidden;
+}
+#work img {
+    display: block;
+    width: 100%;
+}
+.imgOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+.imgOverlay h4 {
+    display: none;
+}
+.imgOverlay button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    outline: none;
+    border: 3px solid white;
+    border-radius: 50px;
+    color: black;
+    background-color: white;
+}
+
+#footer {
+    position: relative;
+    background-color: #070707;
+}
+#contact {
+    position: relative;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    min-height: 200px;
+    padding: 20px;
+    border-radius: 50px;
+    background: #040404;
+}
+#contact h3 {
+    margin-bottom: 40px;
+    padding: 0;
+    font-size: 40px;
+}
+#contactIcons {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 20px;
+}
+#contactIcons a {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 50px;
+}
+
+#home div {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 0 0 10px #0e0e0e/* , 0 0 100px black */;
+}
+h1 {
+    display: inline;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+}
+h2 {
+    display: inline;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+h3 {
+    padding: 50px 10%;
+    margin: 0;
+    font-size: 25px;
+}
+
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 50px;
+}
+#skills div {
+    padding: 5px;
+    text-align: center;
+}
+#skills svg {
+    height: 50px;
+}
+#skills b {
+    font-size: 20px;
+}
+
+
+/* nav */
+#language {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 0;
+    padding: 0;
+    margin: 30px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+nav {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+#foot {
+    position: relative;
+    width: 100%;
+}
+#foot span {
+    position: absolute;
+    display: block;
+    top: 60px;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    z-index: 1;
+}
+.icons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #070707;
+    z-index: 5;
+}
+.icons svg {
+    padding: 10px;
+}
+.contactBtn {
+    height: 45px;
+    width: 120px;
+    border: 3px solid white;
+    border-radius: 50px;
+    color: white;
+    background-color: transparent;
+    margin: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* nav end */
+
+
+/* Cursor */
+#cursor {
+    display: none;
+}
+#cursorOutline {
+    display: none;
+}
+/* ---------------------- */
+
+::selection {
+    background-color: white;
+    color: black;
+}
+
+@media screen and (min-width: 800px) {
+    * {
+        cursor: none;
+    }
+    canvas {
+        width: 100%;
+    }
+    #cursor {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        mix-blend-mode: difference;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9;
+    }
+    #cursorOutline {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 3px solid white;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    h1 {
+        font-size: 80px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+
+    #skills {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
+    #skills div {
+        width: 20%;
+    }
+    #about > div > p {
+        padding: 0 20%;
+    }
+    
+    .imgOverlay {
+        width: 0;
+        background-color: #040404;
+    }
+    .imgOverlay h4 {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: -100px;
+        transform: translateX(-50%);
+        font-size: 25px;
+    }
+    .imgOverlay button {
+        left: -100px;
+        height: 50px;
+        color: white;
+        background-color: transparent;
+    }
+
+    #contactIcons {
+        flex-direction: row;
+    }
+    #contactIcons a {
+        width: 40%;
+    }
+}
