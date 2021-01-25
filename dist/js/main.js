@@ -10,12 +10,12 @@ import {
     Float32BufferAttribute,
     Points,
     PointsMaterial
-} from "/new/node_modules/three/build/three.module.js";
-import { GLTFLoader } from '/new/node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { MathUtils } from '/new/node_modules/three/src/math/MathUtils.js';
-import { EffectComposer } from '/new/node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '/new/node_modules/three/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from '/new/node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+} from "./lib/three.module.js";
+import { GLTFLoader } from './lib/GLTFLoader.js';
+import { MathUtils } from './lib/MathUtils.js';
+import { EffectComposer } from './lib/EffectComposer.js';
+import { RenderPass } from './lib/RenderPass.js';
+import { UnrealBloomPass } from './lib/UnrealBloomPass.js';
 
 let $window = $(window);
 
