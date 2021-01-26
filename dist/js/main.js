@@ -312,7 +312,7 @@ function render() {
             modelParticles.position.y += 0.1 * ((beta * 0.1) - modelParticles.position.y);
         }
 
-    } else {
+    } else if(!isMobile) {
         lon += (mouseX -lon) * 0.05;
         lat += (-mouseY -lat) * 0.05;
         lat = Math.max(-85, Math.min(85, lat));
