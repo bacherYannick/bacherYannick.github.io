@@ -60,12 +60,7 @@ if(window.matchMedia("(min-width: 800px)").matches) {
     isMobile = true;
 }
 
-if(isMobile) {
-    $("#home").css("height", window.innerHeight);
-}
-
 /* Events */
-window.addEventListener("deviceorientation", onDeviceOrientation);
 $window.on("mousemove", onMouseMove);
 interactive.on("mouseenter", onLinkEnter);
 interactive.on("mouseleave", onLinkLeave);
@@ -131,20 +126,7 @@ if(!$.os.phone && !$.os.tablet) {
 /* --- */
 
 
-/* if(isMobile) {
-    $.each($("#skills div"), function(index, item) {
-        gsap.to(item, {scrollTrigger: item, opacity: 1});
-    })
-} else {
-    gsap.to("#skills div", {scrollTrigger: "#skills", opacity: 1, stagger: 0.1});
-} */
-
-
 /* Event functions */
-function onDeviceOrientation(event) {
-    alpha = event.alpha * 0.4;
-    beta = (event.beta - 90) * 0.4;
-}
 
 function onMouseMove(event) {
     mouse.x = event.x;
@@ -164,13 +146,11 @@ function onResize() {
 }
 
 function onLinkEnter() {
-/*     gsap.to(cursorOutline, {duration: 0.25, height: 75, width: 75, backgroundColor: "rgba(100, 100, 100, 0.4)"}); */
     gsap.to(cursor, {duration: 0.25, height: 50, width: 50});
     hoverLink = true;
 }
 
 function onLinkLeave() {
-/*     gsap.to(cursorOutline, {duration: 0.25, height: 50, width: 50, backgroundColor: "transparent"}); */
     gsap.to(cursor, {duration: 0.25, height: 10, width: 10, opacity: 1});
     hoverLink = false;
 }
@@ -263,11 +243,14 @@ function createModels() {
                         let mat = new PointsMaterial({color: 0xa6e89c, size: 0.4, transparent: true, alphaTest: 0.1, map: sprite, sizeAttenuation: true});
                         modelParticles = new Points(aniParticles, mat);
                         scene.add(modelParticles);
-/*                         console.log(aniParticles.attributes.position.array)
-                        console.log(endGeo.attributes.position.array)
-                        console.log(newVert) */
                         gsap.to(aniParticles.attributes.position.array, 2, endGeo.attributes.position.array);
                         particleActive = true;
+                        
+                        if(isMobile) {
+                            $("#home").css("height", window.innerHeight);
+                            gsap.set(modelParticles.position, {y: -1})
+                            gsap.to(modelParticles.position, 5, {y: 1, yoyo: true, repeat: -1, ease: "power1.inOut"})
+                        }
                         
                     } else{
                         newVert = [];
