@@ -290,29 +290,7 @@ function animate() {
 
 function render() {
 
-    if(isMobile && alpha) {
-        lon += (-alpha -lon) * 0.05;
-        lat += (beta -lat) * 0.05;
-        lon = Math.max(-85, Math.min(85, lon));
-        lat = Math.max(-85, Math.min(85, lat));
-    
-        targetPosition = new Vector3();
-    
-        phi = MathUtils.degToRad(90 - lat);
-        theta = MathUtils.degToRad(180 - lon);
-    
-        let position = camera.position
-        
-        targetPosition.setFromSphericalCoords(1, phi, theta).add(position);
-    
-        camera.lookAt(targetPosition);
-
-        if(testStart) {
-            modelParticles.position.x += 0.1 * ((-alpha * 0.1) - modelParticles.position.x);
-            modelParticles.position.y += 0.1 * ((beta * 0.1) - modelParticles.position.y);
-        }
-
-    } else if(!isMobile) {
+    if(!isMobile) {
         lon += (mouseX -lon) * 0.05;
         lat += (-mouseY -lat) * 0.05;
         lat = Math.max(-85, Math.min(85, lat));
