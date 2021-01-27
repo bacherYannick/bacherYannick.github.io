@@ -243,7 +243,7 @@ function createModels() {
                         let mat = new PointsMaterial({color: 0xa6e89c, size: 0.4, transparent: true, alphaTest: 0.1, map: sprite, sizeAttenuation: true});
                         modelParticles = new Points(aniParticles, mat);
                         scene.add(modelParticles);
-                        //gsap.to(aniParticles.attributes.position.array, 2, endGeo.attributes.position.array);
+                        gsap.to(aniParticles.attributes.position.array, 2, endGeo.attributes.position.array);
                         particleActive = true;
                         
                         if(isMobile) {
