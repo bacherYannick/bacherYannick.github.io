@@ -21,7 +21,7 @@ let $window = $(window);
 
 
 const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath( './lib/draco/' );
+dracoLoader.setDecoderPath( '/dist/js/lib/draco/' );
 dracoLoader.setDecoderConfig( { type: 'js' } );
 
 
