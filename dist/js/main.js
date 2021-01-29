@@ -9,19 +9,25 @@ import {
     WebGLRenderer,
     Float32BufferAttribute,
     Points,
-    PointsMaterial
-} from "./lib/three.module.js";
-import { GLTFLoader } from './lib/GLTFLoader.js';
-import { MathUtils } from './lib/MathUtils.js';
-import { EffectComposer } from './lib/EffectComposer.js';
-import { RenderPass } from './lib/RenderPass.js';
-import { UnrealBloomPass } from './lib/UnrealBloomPass.js';
+    PointsMaterial,
+} from "/new/node_modules/three/build/three.module.js";
+import { DRACOLoader } from '/new/node_modules/three/examples/jsm/loaders/DRACOLoader.js';
+import { MathUtils } from '/new/node_modules/three/src/math/MathUtils.js';
+import { EffectComposer } from '/new/node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '/new/node_modules/three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from '/new/node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js';
 
 let $window = $(window);
 
+
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath( '/new/node_modules/three/examples/js/libs/draco/' );
+dracoLoader.setDecoderConfig( { type: 'js' } );
+
+
+
 let interactive = $(".interactive");
 let contact = $("nav .contactBtn");
-let language = $("#language");
 let image = $(".imgContainer");
 
 let endVertices = [];
@@ -34,24 +40,20 @@ let particleAnimation;
 let particleActive = false;
 let particleCount;
 let renderScene, bloomPass, composer;
-let sprite = new TextureLoader().load('/dist/assets/img/disc.png');
+let sprite = new TextureLoader().load('/new/dist/assets/img/disc.png');
 let particles, modelParticles;
 let testStart = false;
 
 let scene, renderer, camera;
 
 let targetPosition = new Vector3();
-let phi;
-let theta;
+let phi, theta;
 
 let lat = 0;
 let lon = 0;
 
 let mouseX = 0;
 let mouseY = 0;
-
-let alpha = 0;
-let beta = 0;
 
 let isMobile;
 if(window.matchMedia("(min-width: 800px)").matches) {
@@ -66,17 +68,6 @@ interactive.on("mouseenter", onLinkEnter);
 interactive.on("mouseleave", onLinkLeave);
 image.on("mouseenter", onImgEnter);
 image.on("mouseleave", onImgLeave);
-language.on("click", e => {
-    if(language.text() === "DEU"){
-        $(".german").attr("aria-hidden", "false");
-        $(".english").attr("aria-hidden", "true");
-        language.text("ENG");
-    } else {
-        $(".english").attr("aria-hidden", "false");
-        $(".german").attr("aria-hidden", "true");
-        language.text("DEU");
-    }
-})
 contact.on("click", e => {
     e.preventDefault();
     gsap.to($("html"), 1, {scrollTo: "#contact"});
@@ -126,6 +117,8 @@ if(!$.os.phone && !$.os.tablet) {
 /* --- */
 
 
+
+
 /* Event functions */
 
 function onMouseMove(event) {
@@ -133,17 +126,6 @@ function onMouseMove(event) {
     mouse.y = event.y;
     mouseX = (event.clientX - window.innerWidth / 2) * 0.01;
     mouseY = (event.clientY - window.innerHeight / 2) * 0.01;
-/*     mouseX = (event.x - window.innerHeight / 2) * 0.1
-    mouseY = (event.y - window.innerWidth / 2) * 0.1 */
-/*     console.log(mouseX + "X--------------Y" + mouseY) */
-}
-
-function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
 
 function onLinkEnter() {
     gsap.to(cursor, {duration: 0.25, height: 50, width: 50});
@@ -192,21 +174,17 @@ function init() {
 }
 
 function createModels() {
-    let loader = new GLTFLoader();
+        dracoLoader.load( '/new/dist/assets/models/model.drc', function ( geometry ) {
 
-    loader.load(
-        '/dist/assets/models/scene.gltf',
+            console.log(geometry.attributes.position.array)
+            let geo = geometry.attributes.position.array
+            $.each(geo, function(index, item) {
+                endVertices.push(item);
+            });
+        
+            dracoLoader.dispose();
 
-        function (gltf) {
-            gltf.scene.traverse(function (child) {
-                if(child.isMesh) {
-
-                    let geometry = child.geometry.attributes.position.array;
-                    $.each(geometry, function(index, item) {
-                        endVertices.push(item);
-                    })
-
-                    particleCount = endVertices.length / 3;
+            particleCount = endVertices.length / 3;
 
                     for ( let i = 0; i < 3000; i++ ) {
 
@@ -243,30 +221,32 @@ function createModels() {
                         let mat = new PointsMaterial({color: 0xa6e89c, size: 0.4, transparent: true, alphaTest: 0.1, map: sprite, sizeAttenuation: true});
                         modelParticles = new Points(aniParticles, mat);
                         scene.add(modelParticles);
+
                         gsap.to(aniParticles.attributes.position.array, 2, endGeo.attributes.position.array);
                         particleActive = true;
-                        
+
                         if(isMobile) {
                             $("#home").css("height", window.innerHeight);
                             gsap.set(modelParticles.position, {y: -1})
                             gsap.to(modelParticles.position, 5, {y: 1, yoyo: true, repeat: -1, ease: "power1.inOut"})
+                        console.log(camera)
                         }
+
+
                         
                     } else{
                         newVert = [];
                     }
 
                  
-                    gsap.delayedCall(2, function() {
+                    gsap.delayedCall(.5, function() {
                         testStart = true;
                     })
-
-                }
-            })
-        },
         
-    )
+        } )
+
 }
+
 
 function createShader() {
     renderScene = new RenderPass(scene, camera);
@@ -284,11 +264,6 @@ function createShader() {
 
 function animate() {
     requestAnimationFrame(animate);
-
-    render();
-}
-
-function render() {
 
     if(!isMobile) {
         lon += (mouseX -lon) * 0.05;
@@ -326,8 +301,9 @@ function render() {
         aniParticles.computeBoundingSphere();
     }
 
-
     renderer.render(scene, camera);
 
     composer.render();
+
+
 }
