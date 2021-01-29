@@ -229,7 +229,6 @@ function createModels() {
                             $("#home").css("height", window.innerHeight);
                             gsap.set(modelParticles.position, {y: -1})
                             gsap.to(modelParticles.position, 5, {y: 1, yoyo: true, repeat: -1, ease: "power1.inOut"})
-                        console.log(camera)
                         }
 
 
