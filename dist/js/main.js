@@ -126,6 +126,7 @@ function onMouseMove(event) {
     mouse.y = event.y;
     mouseX = (event.clientX - window.innerWidth / 2) * 0.01;
     mouseY = (event.clientY - window.innerHeight / 2) * 0.01;
+}
 
 function onLinkEnter() {
     gsap.to(cursor, {duration: 0.25, height: 50, width: 50});
