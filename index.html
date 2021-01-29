@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yannick - Web Developer</title>
-    <meta name="description" content="
+<!--     <meta name="description" content="
     I code and design beautiful websites.
-    As I'm still at the beginning of my freelancing journey and don't have many projects to show, I will build your website for a low price.">
-    <link rel="stylesheet" rel="preload" href="/dist/css/main.css">
-    <script src="/dist/js/lib/gsap/gsap.min.js"></script>
-    <script src="/dist/js/lib/gsap/ScrollToPlugin.min.js"></script>
-    <script src="/dist/js/lib/zepto.js"></script>
-    <script src="/dist/js/lib/detect.js"></script>
+    As I'm still at the beginning of my freelancing journey and don't have many projects to show, I will build your website for a low price."> -->
+    <meta name="description" content="
+    Front-end web developer and designer, I code and design beautiful websites for a low price">
+
+    <link rel="canonical" href="https://bacheryannick.github.io/">
+    <link rel="modulepreload" href="node_modules/three/examples/jsm/postprocessing/RenderPass.js">
+    <link rel="modulepreload" href="node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js">
+    <link rel="modulepreload" href="node_modules/three/examples/jsm/postprocessing/EffectComposer.js">
+    <link rel="stylesheet" href="dist/css/main.css">
+<!--     <script src="node_modules/three/examples/jsm/libs/tween.module.min.js"></script> -->
 </head>
 <body>
     
@@ -21,9 +25,8 @@
         <div id="cursorOutline"></div>
 
         <nav>
-            <button id="language" class="interactive">DEU</button>
-            <button href="#contact" class="interactive contactBtn english">Contact</button>
-            <button href="#contact" class="interactive contactBtn german" aria-hidden="true">Kontakt</button>
+            <a href="de/" aria-label="change language to german" id="language" class="interactive">DEU</a>
+            <button href="#contact" class="interactive contactBtn">Contact</button>
         </nav>
     </div>
 
@@ -31,88 +34,60 @@
     <div id="main">
         <section id="home">
             <div>
-                <h1>YANNICK BACHER</h1>
+                <span>YANNICK BACHER</span>
                 <br>
-                <h2>Web Design/Development</h2>
+                <h1>Web Design/Development</h1>
             </div>
         </section>
         <section id="about">
-            <div class="english">
-                <h3>Hello, I'm Yannick</h3>
+            <div>
+                <h2>Hello, I'm Yannick</h2>
                 <p>
 <!--                     I code and design beautiful websites with a focus on interactivity and user-experience. -->
                     I code and design beautiful websites that are optimized for performance, search engines, and user-experience. <br>
                     My goal is to bring your ideas to life. <br>
                     As I'm still at the beginning of my freelancing journey and don't have many projects to show, I will build your website for a low price.
                 </p>
-            </div> 
-
-            <div class="german" aria-hidden="true">
-                <h3>Hallo, Ich heisse Yannick</h3>
-                <p>
-<!--                     I programmiere und gestalte moderne Websiten.
-                    Da ich noch nicht lange als Freelancer arbeite und nicht viele Projekte präsentieren kann, werde ich Ihre Website für einen niedrigen Preis bauen.
-                    Sie können mich über Fiverr, etc, oder direkt per E-mail beauftragen. -->
-                    Ich programmiere und entwerfe schöne Websites, die für Performance, Suchmaschinen und User-Experience optimiert sind. <br>
-                    Mein Ziel ist es, Ihre Ideen zum Leben zu erwecken. <br>
-                    Da ich noch am Anfang meiner freiberuflichen Karriere stehe und noch nicht viele Projekte vorweisen kann, baue ich Ihre Website zu einem günstigen Preis.
-                </p>
-            </div>    
+            </div>   
 
             <div id="skills">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <p class="english"><b>Fast</b> <br>
+                    <p><h3>Fast</h3>
                         Short loadtimes on mobile and desktop
-                    </p>
-                    <p class="german" aria-hidden="true"><b>Schnell</b> <br>
-                        Kurze Ladezeiten auf Mobile und Desktop
                     </p>
                 </div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.1252 5.4888" stroke="white"><g transform="translate(-83.134 -137.27)"><g transform="matrix(.26458 0 0 .26458 82.869 136.74)" style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2;stroke:currentColor"> <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/> <line x1="8" x2="16" y1="21" y2="21"/> <line x1="12" x2="12" y1="17" y2="21"/></g><g transform="matrix(.12754 0 0 .13269 86.674 139.67)" style="fill:#f1f1f1;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.529;stroke:currentColor"> <rect x="5" y="2" width="14" height="20" rx="4.1491" ry="3.9879" style="fill:#070707;stroke-width:2.529"/> <line x1="12" x2="12.01" y1="18" y2="18" style="fill:#f1f1f1;stroke-width:2.529"/></g></g></svg>
-                    <p class="english"><b>Responsive</b> <br>
+                    <p><h3>Responsive</h3>
                         Looking pretty on any screen size
-                    </p>
-                    <p class="german" aria-hidden="true"><b>Responsive</b> <br>
-                        Sieht auf jeder Bildschirmgröße gut aus
                     </p>
                 </div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                    <p class="english"><b>SEO</b> <br>
+                    <p><h3>SEO</h3>
                         Optimized to rank higher on search engine results
-                    </p>
-                    <p class="german" aria-hidden="true"><b>SEO</b> <br>
-                        Optimiert für eine höhere Platzierung in den Suchmaschinenergebnissen
                     </p>
                 </div>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    <p class="english"><b>Accessible</b> <br>
+                    <p><h3>Accessible</h3>
                         Ensuring accessibility for people with disabilities, or special needs
-                    </p>
-                    <p class="german" aria-hidden="true"><b>Einfach zugänglich</b> <br>
-                        Einfacher Zugang für Menschen mit Behinderungen oder besonderen Bedürfnissen
                     </p>
                 </div>
             </div>
         </section>
         <section id="work">
-            <h3 class="english">
+            <h2>
                 My Projects and Experiments
-            </h3>
-            <h3 class="german" aria-hidden="true">
-                Meine Projekte und Experimente
-            </h3>
+            </h2>
 
             <div>
                 <div class="imgContainer">
-                    <img src="dist/assets/img/Portfolio_Capture.jpeg" alt="portfolio thumbnail">
+                    <img src="dist/assets/img/Portfolio_Capture.jpeg" alt="web developer portfolio">
                     <span class="imgOverlay">
                         <h4>Portfolio</h4>
-                        <button class="interactive english">Learn More</button>
-                        <button class="interactive german" aria-hidden="true">Lerne mehr</button>
+                        <button class="interactive">Learn More</button>
                     </span>
                 </div>
             </div>
@@ -121,12 +96,9 @@
         <section id="footer">
 
             <div id="contact">
-                <h3 class="english">
+                <h2>
                     Get in touch
-                </h3>
-                <h3 class="german" aria-hidden="true">
-                    Kontaktiere mich
-                </h3>
+                </h2>
                 <div id="contactIcons">
                     <a href="mailto:yannickbacher.dev@gmail.com" class="interactive" aria-label="email link" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -140,15 +112,14 @@
             <div id="foot">
                 <p>You can also check out some more of my work</p>
                 <div class="icons">
-                    <a href="https://github.com/bacherYannick" rel="noopener" aria-label="github link" target="_blank">
+                    <a href="https://www.github.com/bacherYannick" rel="noopener" aria-label="github link" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="interactive" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     </a>
-                    <a href="https://codepen.io/bacherYannick" rel="noopener" aria-label="codepen link" target="_blank">
+                    <a href="de/" rel="noopener" aria-label="codepen link" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="interactive" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg>    
                     </a>
                 </div>
                 <span></span>
-                <p></p>
             </div>
 
         </section>
@@ -156,7 +127,11 @@
 </div>
 <div id="canvas"></div>
 
-
-<script type="module" src="/dist/js/main.js"></script>
+<script src="dist/js/lib/gsap/gsap.min.js"></script>
+<script src="dist/js/lib/gsap/ScrollToPlugin.min.js"></script>
+<script src="dist/js/lib/gsap/ScrollTrigger.min.js"></script>
+<script src="dist/js/lib/zepto.js"></script>
+<script src="dist/js/lib/detect.js"></script>
+<script type="module" src="dist/js/main.js"></script>
 </body>
 </html>
