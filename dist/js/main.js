@@ -40,7 +40,7 @@ let particleAnimation;
 let particleActive = false;
 let particleCount;
 let renderScene, bloomPass, composer;
-let sprite = new TextureLoader().load('../assets/img/disc.png');
+let sprite = new TextureLoader().load('/dist/assets/img/disc.png');
 let particles, modelParticles;
 let testStart = false;
 
@@ -175,7 +175,7 @@ function init() {
 }
 
 function createModels() {
-        dracoLoader.load( '../assets/models/model.drc', function ( geometry ) {
+        dracoLoader.load( '/dist/assets/models/model.drc', function ( geometry ) {
 
             console.log(geometry.attributes.position.array)
             let geo = geometry.attributes.position.array
