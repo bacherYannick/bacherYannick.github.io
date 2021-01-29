@@ -177,7 +177,6 @@ function init() {
 function createModels() {
         dracoLoader.load( '/dist/assets/models/model.drc', function ( geometry ) {
 
-            console.log(geometry.attributes.position.array)
             let geo = geometry.attributes.position.array
             $.each(geo, function(index, item) {
                 endVertices.push(item);
