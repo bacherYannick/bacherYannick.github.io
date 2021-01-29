@@ -10,18 +10,18 @@ import {
     Float32BufferAttribute,
     Points,
     PointsMaterial,
-} from "/new/node_modules/three/build/three.module.js";
-import { DRACOLoader } from '/new/node_modules/three/examples/jsm/loaders/DRACOLoader.js';
-import { MathUtils } from '/new/node_modules/three/src/math/MathUtils.js';
-import { EffectComposer } from '/new/node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from '/new/node_modules/three/examples/jsm/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from '/new/node_modules/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+} from "./lib/three.module.js";
+import { DRACOLoader } from './lib/DRACOLoader.js';
+import { MathUtils } from './lib/MathUtils.js';
+import { EffectComposer } from './lib/EffectComposer.js';
+import { RenderPass } from './lib/RenderPass.js';
+import { UnrealBloomPass } from './lib/UnrealBloomPass.js';
 
 let $window = $(window);
 
 
 const dracoLoader = new DRACOLoader();
-dracoLoader.setDecoderPath( '/new/node_modules/three/examples/js/libs/draco/' );
+dracoLoader.setDecoderPath( './lib/draco/' );
 dracoLoader.setDecoderConfig( { type: 'js' } );
 
 
@@ -40,7 +40,7 @@ let particleAnimation;
 let particleActive = false;
 let particleCount;
 let renderScene, bloomPass, composer;
-let sprite = new TextureLoader().load('/new/dist/assets/img/disc.png');
+let sprite = new TextureLoader().load('../assets/img/disc.png');
 let particles, modelParticles;
 let testStart = false;
 
@@ -174,7 +174,7 @@ function init() {
 }
 
 function createModels() {
-        dracoLoader.load( '/new/dist/assets/models/model.drc', function ( geometry ) {
+        dracoLoader.load( '../assets/models/model.drc', function ( geometry ) {
 
             console.log(geometry.attributes.position.array)
             let geo = geometry.attributes.position.array
